@@ -34,13 +34,7 @@ public class PlayerGFX : MonoBehaviour
     void Update()
     {
 
-        //transform.Translate(transform.position.x, transform.position.y, transform.position.y);
-        ////transform.position.z = transform.position.y;
-        //Vector3 temp = transform.position;
-        //temp.z = temp.y*0.1f;
-        //transform.position = temp;
-        //transform.position.z = transform.position.y;
-
+      
 
         if (aiPath.desiredVelocity.x < 0f)
         {

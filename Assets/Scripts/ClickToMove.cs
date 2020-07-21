@@ -23,7 +23,17 @@ public class ClickToMove : MonoBehaviour
     {
         titleScript = GetComponentInChildren<TitlesScript>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        Instance = this;
+
+
+
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         animator = GetComponent<Animator>();
         aIDestinationSetter = GetComponent<AIDestinationSetter>();  
         pause = true;
