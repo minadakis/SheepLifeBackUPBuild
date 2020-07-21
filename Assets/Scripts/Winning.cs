@@ -10,21 +10,21 @@ public class Winning : MonoBehaviour
     public int CorrectHoles = 0;
     public int CurrentLevel ;
   
-    public static GameObject instance;
+    public static Winning instance;
 
     //We keep the dog in all scenes with dontdestroyonload
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+       
         if (instance == null)
         {
-            instance = this.gameObject;
+            instance = this;
 
 
         }else
        
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
 
         }
 

@@ -20,12 +20,12 @@ public class RandomOnStart : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (ClickToMove.Instance != null)
-        {
-            //player.x,player.y,temp1.z-trypa.y-0.1
+        
+       
+            
             Vector3 pos = new Vector3(transform.position.x, transform.position.y, temp1.z - ClickToMove.Instance.transform.position.y-0.2f);
             transform.position = pos;
-        }
+        
         
         
         

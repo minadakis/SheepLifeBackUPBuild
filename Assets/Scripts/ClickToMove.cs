@@ -28,8 +28,19 @@ public class ClickToMove : MonoBehaviour
         aIDestinationSetter = GetComponent<AIDestinationSetter>();  
         pause = true;
         aIDestinationSetter.target = null;
-        
 
+        DontDestroyOnLoad(this.gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+
+
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+       
 
 
     }
