@@ -8,9 +8,8 @@ public class PlayerGFX : MonoBehaviour
     
     public AIPath aiPath;
     Animator anim;
-    public bool canSeeHoleDigging;
     private ParticleSystem dust;
-    public float x, y, z;
+    private float x, y, z;
     public GameObject particleObject;
 
 
@@ -21,69 +20,59 @@ public class PlayerGFX : MonoBehaviour
     {
 
         anim = GetComponent<Animator>();
-        canSeeHoleDigging = true;
-
         dust = particleObject.GetComponent<ParticleSystem>();
 
     }
 
 
     // Update is called once per frame
-    //We flip the dog sprite to the correct rotation in accordination to desiredVelocity.
+    //We flip the sheep sprite to the correct rotation in accordination to desiredVelocity.
     // Animator starts and stops the running animation in accordination to desiredVelocity
     void Update()
     {
 
-      
+        anim.SetFloat("speed", aiPath.desiredVelocity.magnitude);
 
-        if (aiPath.desiredVelocity.x < 0f)
+
+        if (anim.GetFloat("speed") != 0)
         {
+            if (dust.isStopped)
+            {
+                dust.Play();
+            }
+            if (aiPath.desiredVelocity.x < 0f)
+            {
 
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-            anim.SetFloat("speed", Mathf.Abs(aiPath.desiredVelocity.x));
-            canSeeHoleDigging = false;
+                transform.localScale = new Vector3(-1f, 1f, 1f);
 
+            }
+            else if (aiPath.desiredVelocity.x > 0f)
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
 
+            }
+            //else
+            //{
 
-
-
-
-        }
-        else if (aiPath.desiredVelocity.x > 0f)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-            anim.SetFloat("speed", Mathf.Abs(aiPath.desiredVelocity.x));
-            canSeeHoleDigging = false;
-
-        }
-        else {
-            anim.SetFloat("speed", Mathf.Abs(aiPath.desiredVelocity.x));
-            canSeeHoleDigging = false;
-        }
+            //}
 
 
-        if ( aiPath.desiredVelocity.y >= 0.2f | aiPath.desiredVelocity.y <= -0.2f)
-        {
+            //if (aiPath.desiredVelocity.y >= 0.2f | aiPath.desiredVelocity.y <= -0.2f)
+            //{
+
+            //   // anim.SetFloat("speed", Mathf.Abs(aiPath.desiredVelocity.y));
+            //    //canSeeHoleDigging = false;
+
+            //}
            
-            anim.SetFloat("speed", Mathf.Abs(aiPath.desiredVelocity.y));
-            canSeeHoleDigging = false;
-           
-        }
-
-
-        if (aiPath.desiredVelocity.x == 0 & aiPath.desiredVelocity.y == 0)
-        {
             
-            canSeeHoleDigging = true;
-            var emission = dust.emission;
-            emission.enabled = false;
         }
-        else
+        else if(dust.isPlaying&& anim.GetFloat("speed")==0)
         {
-
-            var emission = dust.emission;
-            emission.enabled = true;
+            dust.Stop();
         }
+
+      
 
 
     }

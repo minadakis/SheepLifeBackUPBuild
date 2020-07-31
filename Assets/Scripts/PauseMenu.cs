@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     
 
-    // Update is called once per frame
+    //If we press the escape button or the back button in android then the pausemenu is gonna show up
     void Update()
     {
         if (Input.GetButtonDown("Exit"))
@@ -26,6 +26,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    //If we press resume then the menu panel dissapears and we keep going playing
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
@@ -33,22 +34,29 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
     }
 
-    void Pause()
+    //If we press the pause button then we set the timescale to 0 .
+   public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
+    //If we press the main menu button then we return to the main menu scene
     public void LoadMenu()
     {
         Time.timeScale = 1f;
         Destroy(GameObject.FindGameObjectWithTag("Player"));
+        Destroy(AudioManager.instance.gameObject);
+        Destroy(GameMaster.instance.gameObject);
         SceneManager.LoadScene("Menu");
     }
-
+    
+    //If we press the quit button then we close the application
     public void QuitGame()
     {
         Application.Quit();
     }
+
+    
 }

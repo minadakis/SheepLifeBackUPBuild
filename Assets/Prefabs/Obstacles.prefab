@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3549135269315411259}
   - component: {fileID: 2371335675131781048}
   - component: {fileID: 388137650614263024}
+  - component: {fileID: 8340540959325911393}
   m_Layer: 8
   m_Name: Obstacles
   m_TagString: Obstacle_tag
@@ -48,6 +49,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -59,6 +61,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -95,10 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 3f78f6a6de691c1479a3b148cd76655a, type: 3}
+  - {fileID: 21300000, guid: 71ad5735a48fd5c4f9f1ac116ce541cb, type: 3}
   - {fileID: 21300000, guid: 435892df9e3c9b248a6456ad7212741a, type: 3}
   - {fileID: 21300000, guid: e7b63838b112624489dd3164e097fc33, type: 3}
-  ypos: 0
 --- !u!61 &388137650614263024
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -112,19 +114,31 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.031173825, y: 0.39}
+  m_Offset: {x: 0.15065944, y: 0.39}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.49506718, y: 0.19845417}
-    oldSize: {x: 2.675, y: 2.6583333}
+    oldSize: {x: 3.21, y: 3.19}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.6002305, y: 0.82415116}
+  m_Size: {x: 2.9288452, y: 0.82415116}
   m_EdgeRadius: 0
+--- !u!114 &8340540959325911393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549135269315411258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e00dacd7f418e4ea1aae767856c9d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7552024178611468964
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +184,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -181,6 +196,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

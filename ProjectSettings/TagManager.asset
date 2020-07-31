@@ -19,6 +19,7 @@ TagManager:
   - Shepard
   - cameratest
   - cameratestMain
+  - AudioManager
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - 
   - 
   - Obstacle
-  - 
+  - Eating
   - 
   - 
   - 
@@ -55,4 +56,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Shepard
+    uniqueID: 3794058539
     locked: 0

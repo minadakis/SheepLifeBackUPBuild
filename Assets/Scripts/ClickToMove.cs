@@ -9,9 +9,8 @@ public class ClickToMove : MonoBehaviour
     private Animator animator;
     private Vector3 TargetPosition;
     public bool pause;
-    public bool stopMoving;
     GameObject Player;
-    private TitlesScript titleScript;
+
 
 
     public static ClickToMove Instance;
@@ -21,24 +20,12 @@ public class ClickToMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        titleScript = GetComponentInChildren<TitlesScript>();
+
         Player = GameObject.FindGameObjectWithTag("Player");
-
-
-
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
         animator = GetComponent<Animator>();
         aIDestinationSetter = GetComponent<AIDestinationSetter>();  
         pause = true;
         aIDestinationSetter.target = null;
-
         DontDestroyOnLoad(this.gameObject);
         if (Instance == null)
         {
@@ -52,7 +39,6 @@ public class ClickToMove : MonoBehaviour
         }
        
 
-
     }
     
 
@@ -62,6 +48,27 @@ public class ClickToMove : MonoBehaviour
     public void SetTargetPosition(Transform position)
     {
 
+
+
+         //SheepVoice when we click to go to a hole,it chooses on random
+            int num = Random.Range(1, 5);
+            if (num == 1 )
+            {
+                AudioManager.instance.Play("SheepSound1");
+            }
+            else if (num == 2 )
+            {
+                AudioManager.instance.Play("SheepSound2");
+            }
+            else if (num == 3 )
+            {
+                AudioManager.instance.Play("SheepSound3");
+            }
+            else if (num == 4 )
+            {
+                AudioManager.instance.Play("SheepSound4");
+            }
+        
         if (pause)
         {
             
@@ -72,9 +79,11 @@ public class ClickToMove : MonoBehaviour
 
     }
 
-    //public void CreateDust()
-    //{
-    //    dust.Play();
-    //}
+
+   public void StopSheep()
+    {
+        if(Player!=null)
+        Player.GetComponent<AIDestinationSetter>().target = transform;
+    }
 
 }

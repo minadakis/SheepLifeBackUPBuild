@@ -6,30 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
-    public static GameMaster instance;
+    
     public bool easy = false;
     public bool medium = false;
     public bool hard=false;
-    public int stableDifficulty;
     public bool selectedDifficulty;
     public bool instrunctionTutorial=false;
     GameObject Player;
     GameObject Holes;
-
     public GameObject blackhole;
     public GameObject redhole;
     public GameObject greenhole;
     public GameObject yellowhole;
-    public GameObject whiteflower;
-    public GameObject redflower;
-    public GameObject pinkflower;
     public GameObject grass;
     public GameObject hay;
+    public GameObject hay_2;
+    public Sprite hay03;
+    public Sprite hay04;
+    public Sprite grass1;
+
+
+    public static GameMaster instance;
 
     GameObject correctColor;
     
 
-
+    //We make this script instance so we dont want to destroy it after loading scenes
     void Awake()
     {
 
@@ -49,6 +51,7 @@ public class GameMaster : MonoBehaviour
 
     }
 
+    //This update checks if we are on the last scene of the game,and if you press any key there you gonna open the main menu of the game
     public void Update()
     {
         Scene currentScene = SceneManager.GetActiveScene();
@@ -67,7 +70,7 @@ public class GameMaster : MonoBehaviour
 
     //Everytime the randomizer script is running,we execute this function
     //This func creates the map depending the difficulty mode we are playing
-    //EASY=2 COLORS  MEDIUM=3 COLORS  HARD=4 COLORS
+    //EASY=2 COLORS  MEDIUM=3 COLORS  HARD=6 DIFFERENT KIND OF BUSHES
     public void StartLevel()
     {
         Holes = GameObject.FindGameObjectWithTag("Holes");
@@ -78,21 +81,16 @@ public class GameMaster : MonoBehaviour
         Holes = GameObject.FindGameObjectWithTag("Holes");
 
 
-       
-
-        
-
-
         if (easy == true)
         {
-            Debug.Log("easy");
+           
             Holes.GetComponent<Randomizer>().Holes.Add(blackhole);
             Holes.GetComponent<Randomizer>().Holes.Add(yellowhole) ;
             
         }
         if (medium == true)
         {
-            Debug.Log("medium");
+          
             Holes.GetComponent<Randomizer>().Holes.Add(redhole);
             Holes.GetComponent<Randomizer>().Holes.Add(yellowhole);
             Holes.GetComponent<Randomizer>().Holes.Add(blackhole);
@@ -100,42 +98,46 @@ public class GameMaster : MonoBehaviour
         }
         if (hard == true)
         {
-            Debug.Log("hard");
+            
             Holes.GetComponent<Randomizer>().Holes.Add(hay);
             Holes.GetComponent<Randomizer>().Holes.Add(grass);          
             Holes.GetComponent<Randomizer>().Holes.Add(yellowhole);
-            Holes.GetComponent<Randomizer>().Holes.Add(redhole); 
+            Holes.GetComponent<Randomizer>().Holes.Add(redhole);
+            Holes.GetComponent<Randomizer>().Holes.Add(hay_2);
+            Holes.GetComponent<Randomizer>().Holes.Add(blackhole);
         }
        
 
 
-
+        //We change the number of maxholes-cosmetics-maxObstacles depending the current level we are in
 
         if (Player.GetComponent<Winning>().CurrentLevel >= 0 && Player.GetComponent<Winning>().CurrentLevel < 3)
             {
-                Debug.Log(Player.GetComponent<Winning>().CurrentLevel);
-                Holes.GetComponent<Randomizer>().maxHoles = 3;
+            
+                Holes.GetComponent<Randomizer>().maxHoles = 4;
                 Holes.GetComponent<Randomizer>().maxCosmetics = 3;
                 Holes.GetComponent<Randomizer>().maxObstacles = 3;
 
             }
             else if (Player.GetComponent<Winning>().CurrentLevel >= 3 && Player.GetComponent<Winning>().CurrentLevel < 6)
             {
-                Debug.Log(Player.GetComponent<Winning>().CurrentLevel);
-                Holes.GetComponent<Randomizer>().maxHoles = 5;
+             
+                Holes.GetComponent<Randomizer>().maxHoles = 6;
                 Holes.GetComponent<Randomizer>().maxCosmetics = 3;
                 Holes.GetComponent<Randomizer>().maxObstacles = 3;
 
             }
             else if (Player.GetComponent<Winning>().CurrentLevel >= 6  && Player.GetComponent<Winning>().CurrentLevel<9)
             {
-                Debug.Log(Player.GetComponent<Winning>().CurrentLevel);
-                Holes.GetComponent<Randomizer>().maxHoles = 6;
+             
+                Holes.GetComponent<Randomizer>().maxHoles = 8;
                 Holes.GetComponent<Randomizer>().maxCosmetics = 3;
                 Holes.GetComponent<Randomizer>().maxObstacles = 3;
 
             }
 
+        //If we reach the lvl8,then we move from easy to medium and from medium to hard
+        //If we are on hard and currentlevel 8 then we gonna open the last scene of the game which is the end of game scene
         if (Player.GetComponent<Winning>().CurrentLevel == 8)
         {
             if (selectedDifficulty)
@@ -147,7 +149,6 @@ public class GameMaster : MonoBehaviour
                 if (easy == true)
                 {
                     easy = false;
-                    Debug.Log("Mphkame medium");
                     Player.GetComponent<Winning>().CurrentLevel = 0;
                     medium = true;
                     hard = false;
@@ -157,14 +158,12 @@ public class GameMaster : MonoBehaviour
                 {
                     easy = false;
                     medium = false;
-                    Debug.Log("Mphkame sto hard");
                     Player.GetComponent<Winning>().CurrentLevel = 0;
                     hard = true;
 
                 }
                 else if (hard == true)
                 {
-                    Debug.Log("telos");
                     easy = false;
                     medium = false;
                     hard = false;
@@ -176,55 +175,52 @@ public class GameMaster : MonoBehaviour
             }
         }
 
-        //if (Player.GetComponent<Winning>().CurrentLevel == 2)
-        //{
-           
-            
-            
-        //        if (easy == true)
-        //        {
-        //            easy = false;
-        //            Debug.Log("Mphkame medium");
-        //            Player.GetComponent<Winning>().CurrentLevel = 0;
-        //            medium = true;
-        //            hard = false;
-
-        //        }
-        //        else if (medium == true)
-        //        {
-        //            easy = false;
-        //            medium = false;
-        //            Debug.Log("Mphkame sto hard");
-        //            Player.GetComponent<Winning>().CurrentLevel = 0;
-        //            hard = true;
-
-        //        }
-        //        else if (hard == true)
-        //        {
-        //            easy = false;
-        //            medium = false;
-        //            hard = false;
-        //            Player.GetComponent<Winning>().CurrentLevel = 0;
-        //            SceneManager.LoadScene("EndOfGame");
-        //        }
-
-        //    if (selectedDifficulty)
-        //    {
-        //        Player.GetComponent<Winning>().CurrentLevel = 1;
-        //    }
-        //}
+       
 
 
 
 
     }
    
-
-    public void ShowTheColor(Sprite Sprite,Color SpriteColor)
+    //This is the image in starting bubble animation
+    //Depending the image we wanna show,we scale it down or up to have a normal size inside the bubble animation
+    public void ShowTheColor(Sprite sprite,Color SpriteColor)
     {
-        correctColor = GameObject.FindGameObjectWithTag("CorrectColor");      
-        correctColor.GetComponent<SpriteRenderer>().sprite = Sprite;
-        correctColor.GetComponent<SpriteRenderer>().color = SpriteColor;
+        Vector3 newScale = new Vector3(1.5f, 1.5f, 1.5f);
+        Vector3 newScale2 = new Vector3(1f, 1f, 1f);
+        Vector3 newScale3 = new Vector3(0.7f, 0.7f, 0.7f);
+        correctColor = GameObject.FindGameObjectWithTag("CorrectColor");
+        if (sprite == hay03)
+        {
+            correctColor.GetComponent<SpriteRenderer>().transform.localScale = newScale;
+            correctColor.GetComponent<SpriteRenderer>().sprite = hay03;
+
+
+       
+        }
+        else if (sprite == grass1)
+        {
+
+            correctColor.GetComponent<SpriteRenderer>().transform.localScale = newScale3;
+            correctColor.GetComponent<SpriteRenderer>().sprite = grass1;
+
+
+
+        }
+        else if (sprite == hay04)
+        {
+
+            correctColor.GetComponent<SpriteRenderer>().transform.localScale = newScale;
+            correctColor.GetComponent<SpriteRenderer>().sprite = hay04;
+
+        }
+        else
+        {
+
+            correctColor.GetComponent<SpriteRenderer>().transform.localScale = newScale2;
+            correctColor.GetComponent<SpriteRenderer>().sprite = sprite;
+        }
+        
 
     }
 

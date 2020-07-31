@@ -20,16 +20,15 @@ public class WaitForPlayer : StateMachineBehaviour
         if (Input.anyKey)
         {
             animator.SetTrigger("ButtonPressed");
-           
+            ClickToMove.Instance.StopSheep();
         }
       
     }
 
-    //OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-       
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        ClickToMove.Instance.StopSheep(); ;
+    }
 
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bushes
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 21300000, guid: 88db86555e1da6b47ac0043eda482468, type: 3}
+    - {fileID: 21300000, guid: 380ad82af6c4ef241a0a1a4f47058475, type: 3}
+    - {fileID: 21300000, guid: 3ef8528291892d74990e8bd7ec456826, type: 3}
+    - {fileID: 21300000, guid: 71ad5735a48fd5c4f9f1ac116ce541cb, type: 3}
+    - {fileID: 21300000, guid: 6be24e6abd01e0047a3e4307a9311f82, type: 3}
+    - {fileID: 21300000, guid: b239223ebdc2ce647ae0ac91cf0b62a8, type: 3}
+    - {fileID: 21300000, guid: 32857476519897a4b9935ce50dcfa872, type: 3}
+    - {fileID: 21300000, guid: 361d583f5da9a0840901cea59f9c296c, type: 3}
+    - {fileID: 21300000, guid: b1a88ccea4b3e934c87c1e4e91472a45, type: 3}
+    - {fileID: 21300000, guid: db2f56816a3acd94496752d8e44c6cbf, type: 3}
+    - {fileID: 21300000, guid: e0afcb1ee4c23864a8e0006c4cce5dc8, type: 3}
+    - {fileID: 21300000, guid: af3823702032ed54a8779abbe058b95f, type: 3}
+    - {fileID: 21300000, guid: 1d41cd32cec993d4ab5caa90eb62d75c, type: 3}
+    - {fileID: 2800000, guid: 5124cd9e7eccad1448e8beb168f9bf0d, type: 3}
+    - {fileID: 21300000, guid: 787aed60c6fead643b005ca15e742c11, type: 3}
+    - {fileID: 21300008, guid: b60a6aa3304191e4c837b92ebcc34c32, type: 3}
+    - {fileID: 21300000, guid: b60a6aa3304191e4c837b92ebcc34c32, type: 3}
+    totalSpriteSurfaceArea: 1264859
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 787aed60c6fead643b005ca15e742c11, type: 3}
+  - {fileID: 21300000, guid: af3823702032ed54a8779abbe058b95f, type: 3}
+  - {fileID: 21300000, guid: db2f56816a3acd94496752d8e44c6cbf, type: 3}
+  - {fileID: 21300000, guid: 1d41cd32cec993d4ab5caa90eb62d75c, type: 3}
+  - {fileID: 21300000, guid: 3ef8528291892d74990e8bd7ec456826, type: 3}
+  - {fileID: 21300000, guid: b60a6aa3304191e4c837b92ebcc34c32, type: 3}
+  - {fileID: 21300008, guid: b60a6aa3304191e4c837b92ebcc34c32, type: 3}
+  - {fileID: 21300000, guid: 71ad5735a48fd5c4f9f1ac116ce541cb, type: 3}
+  - {fileID: 21300000, guid: 88db86555e1da6b47ac0043eda482468, type: 3}
+  - {fileID: 21300000, guid: 32857476519897a4b9935ce50dcfa872, type: 3}
+  - {fileID: 21300000, guid: 380ad82af6c4ef241a0a1a4f47058475, type: 3}
+  - {fileID: 21300000, guid: 6be24e6abd01e0047a3e4307a9311f82, type: 3}
+  - {fileID: 21300000, guid: e0afcb1ee4c23864a8e0006c4cce5dc8, type: 3}
+  - {fileID: 21300000, guid: b239223ebdc2ce647ae0ac91cf0b62a8, type: 3}
+  - {fileID: 21300000, guid: 5124cd9e7eccad1448e8beb168f9bf0d, type: 3}
+  - {fileID: 21300000, guid: b1a88ccea4b3e934c87c1e4e91472a45, type: 3}
+  - {fileID: 21300000, guid: 361d583f5da9a0840901cea59f9c296c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - bushes-36
+  - hays-04
+  - grass-01
+  - GrassEaten
+  - flowers-02
+  - Smoke_0
+  - Smoke_4
+  - rocks-03
+  - grass-03
+  - BushBlue
+  - flowers-03
+  - rocks-02
+  - hay-03
+  - rocks-01
+  - HayEaten
+  - BushYellow
+  - BushRed
+  m_Tag: Bushes
+  m_IsVariant: 0

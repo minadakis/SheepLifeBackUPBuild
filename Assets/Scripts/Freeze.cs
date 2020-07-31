@@ -8,6 +8,7 @@ public class Freeze : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Time.timeScale = 0;
+        ClickToMove.Instance.StopSheep();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

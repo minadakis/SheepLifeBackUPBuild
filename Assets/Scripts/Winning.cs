@@ -13,6 +13,7 @@ public class Winning : MonoBehaviour
     public static Winning instance;
 
     //We keep the dog in all scenes with dontdestroyonload
+    //On this script we hold the correctholes and the currentlevel our player is in
     void Start()
     {
        
